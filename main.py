@@ -50,5 +50,10 @@ def call_assistant(name):
     response = asst.ask(prompt)
     return jsonify(response.content)
 
+
+@app.route('/')
+def root():
+    return "Hello"
+
 if __name__ == '__main__':
     app.run(debug=True)
