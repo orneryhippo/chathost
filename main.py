@@ -7,6 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 api_key = os.getenv("OPENAI_API_KEY")
+auth_token = os.getenv("AUTH_TOKEN")
 
 def protect_urls(authorization):
     if not authorization or not authorization.startswith("Bearer "):
@@ -18,7 +19,7 @@ def protect_urls(authorization):
 
 def validate_token(token: str) -> bool:
     # Placeholder for token validation logic
-    return token == "123"  # Replace with actual validation
+    return token == auth_token  # Replace with actual validation
 
 @app.route('/henny', methods=['POST'])
 def call_henny():
