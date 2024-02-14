@@ -2,7 +2,11 @@ from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 from asst import AssistantWrapper, Response
 import os
+import time
+from datetime import datetime 
+from icecream import ic 
 
+ic(time.asctime())
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -54,7 +58,7 @@ def call_assistant(name):
 
 @app.route('/')
 def root():
-    return "Hello"
+    return time.asctime()
 
 if __name__ == '__main__':
     app.run(debug=True)
