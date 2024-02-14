@@ -60,5 +60,11 @@ def call_assistant(name):
 def root():
     return time.asctime()
 
+
+@app.route('/healthcheck')
+def healthcheck():
+    return jsonify({"status": "OK"}), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)
